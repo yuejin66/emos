@@ -205,7 +205,7 @@
       photo = #{photo},
     </if>
     <if test="name!=null">
-      name = #{name},
+      `name` = #{name},
     </if>
     <if test="sex!=null">
       sex = #{sex},
@@ -219,7 +219,7 @@
     <if test="hiredate!=null">
       hiredate = #{hiredate},
     </if>
-    role = #{role},
+    `role` = #{role},
     root = #{root},
     <if test="deptName!=null">
       dept_id = ( SELECT id FROM tb_dept WHERE dept_name = #{deptName} ),
@@ -227,7 +227,14 @@
     status = #{status},
     create_time = #{createTime}
   </insert>
-  <select id="selectIdByOpenId" parameterType="String" resultType="Integer">
+  <select id="getIdByOpenId" parameterType="String" resultType="Integer">
     SELECT id FROM tb_user WHERE open_id=#{openId} AND status = 1
+  </select>
+  <select id="getUserPermissions" parameterType="int" resultType="String">
+    SELECT DISTINCT p.permission_name
+    FROM tb_user u
+    JOIN tb_role r ON JSON_CONTAINS(u.role, CAST(r.id AS CHAR))
+    JOIN tb_permission p ON JSON_CONTAINS(r.permissions, CAST(p.id AS CHAR))
+    WHERE u.id=#{userId} AND u.status=1;
   </select>
 </mapper>

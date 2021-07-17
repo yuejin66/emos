@@ -12,6 +12,7 @@ import top.liyuejin.emoswxapi.service.UserService;
 import javax.annotation.Resource;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Set;
 
 @Service
 @Scope("prototype")
@@ -63,8 +64,13 @@ public class UserServiceImpl implements UserService {
             map.put("createTime", new Date());
             map.put("root", true);
             userDao.insertUser(map);
-            return userDao.selectIdByOpenId(openId);
+            return userDao.getIdByOpenId(openId);
         }
         return 0;
+    }
+
+    @Override
+    public Set<String> getUserPermissions(int userId) {
+        return userDao.getUserPermissions(userId);
     }
 }

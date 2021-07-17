@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.Mapper;
 import top.liyuejin.emoswxapi.pojo.TbUser;
 
 import java.util.HashMap;
+import java.util.Set;
 
 @Mapper
 public interface TbUserDao {
@@ -23,5 +24,7 @@ public interface TbUserDao {
 
     int insertUser(HashMap map);
 
-    Integer selectIdByOpenId(String openId);
+    Integer getIdByOpenId(String openId);
+
+    Set<String> getUserPermissions(int userId);
 }
