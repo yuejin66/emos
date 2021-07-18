@@ -49,7 +49,6 @@ public class UserServiceImpl implements UserService {
         // 如果邀请码是000000，代表是超级管理员
         if ("000000".equals(registerCode)) {
             // 查询是否存在超级管理员
-            var b = userDao.haveRootUser();
             if (userDao.haveRootUser()) {
                 throw new EmosException("无法绑定超级管理员账号");
             }
