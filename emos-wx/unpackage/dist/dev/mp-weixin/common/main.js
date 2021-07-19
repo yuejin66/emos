@@ -22,7 +22,8 @@ createApp(app).$mount();
 var baseUrl = "http://localhost:8090/emos-wx-api";
 
 _vue.default.prototype.url = {
-  register: baseUrl + "/user/register" };
+  register: baseUrl + "/user/register",
+  login: baseUrl + "/user/login" };
 
 
 // 封装全局ajax方法

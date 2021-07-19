@@ -45,6 +45,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public Integer login(String code) {
+        String openId = getOpenId(code);
+        Integer id = userDao.getIdByOpenId(openId);
+        if (null == id) {
+            throw new EmosException("账户不存在");
+        }
+        // TODO：从消息队列中接收消息，转移到消息表
+        return id;
+    }
+
+    @Override
     public int register(String registerCode, String code, String nickName, String photo) {
         // 如果邀请码是000000，代表是超级管理员
         if ("000000".equals(registerCode)) {

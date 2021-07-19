@@ -4,9 +4,11 @@ import java.util.Set;
 
 public interface UserService {
 
-    String getOpenId(String code);
+    Integer login(String code);
 
     int register(String registerCode, String code, String nickName, String photo);
+
+    String getOpenId(String code);
 
     Set<String> getUserPermissions(int userId);
 }

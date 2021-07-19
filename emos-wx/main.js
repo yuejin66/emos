@@ -13,7 +13,8 @@ app.$mount()
 let baseUrl = "http://localhost:8090/emos-wx-api"
 
 Vue.prototype.url = {
-	register: baseUrl + "/user/register"
+	register: baseUrl + "/user/register",
+	login: baseUrl + "/user/login"
 }
 
 // 封装全局ajax方法

@@ -1,4 +1,4 @@
-package top.liyuejin.emoswxapi.threadcoreknowledge.createthreads;
+package top.liyuejin.emoswxapi.other.threadcorekonwledge.createthreads;
 
 /**
  * 用 Thread 实现线程

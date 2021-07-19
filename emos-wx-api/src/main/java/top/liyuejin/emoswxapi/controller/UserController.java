@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.liyuejin.emoswxapi.common.util.Result;
 import top.liyuejin.emoswxapi.config.shiro.JwtUtil;
+import top.liyuejin.emoswxapi.form.LoginForm;
 import top.liyuejin.emoswxapi.form.RegisterForm;
 import top.liyuejin.emoswxapi.service.UserService;
 
@@ -43,9 +44,19 @@ public class UserController {
                                             registerForm.getNickName(),
                                             registerForm.getPhoto());
         String token = jwtUtil.createToken(userId);
-        Set<String> userPermissions = userService.getUserPermissions(userId);
+        Set<String> permissions = userService.getUserPermissions(userId);
         saveCacheToken(token, userId);
-        return Result.success("用戶注冊成功").put("token", token).put("permission", userPermissions);
+        return Result.success("用戶注冊成功").put("token", token).put("permission", permissions);
+    }
+
+    @PostMapping("/login")
+    @ApiOperation("登陆系统")
+    public Result login(@Valid @RequestBody LoginForm loginForm) {
+        Integer userId = userService.login(loginForm.getCode());
+        String token = jwtUtil.createToken(userId);
+        Set<String> permissions = userService.getUserPermissions(userId);
+        saveCacheToken(token, userId);
+        return Result.success("登陆成功").put("token", token).put("permission", permissions);
     }
 
     private void saveCacheToken(String token, int userId) {
