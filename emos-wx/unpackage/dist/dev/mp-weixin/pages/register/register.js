@@ -186,8 +186,10 @@ var _default =
               that.ajax(that.url.register, "POST", data, function (resp) {
                 var permission = resp.permission;
                 uni.setStorageSync("permission", permission);
-                console.log(permission);
-                console.log("跳转到index页面");
+                // 跳转到登陆页面
+                uni.switchTab({
+                  url: "../index/index" });
+
               });
             } });
 

@@ -171,8 +171,10 @@ var _default =
             var permission = resp.data.permission;
             uni.setStorageSync("permission", permission);
           });
-          // TODO 跳转到登陆页面
-          console.log("跳转到登陆页面");
+          // 跳转到登陆页面
+          uni.switchTab({
+            url: "../index/index" });
+
         },
         fail: function fail(e) {
           console.log(e);

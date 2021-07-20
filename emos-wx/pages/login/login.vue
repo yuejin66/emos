@@ -34,8 +34,10 @@
 							let permission = resp.data.permission
 							uni.setStorageSync("permission", permission)
 						})
-						// TODO 跳转到登陆页面
-						console.log("跳转到登陆页面")
+						// 跳转到登陆页面
+						uni.switchTab({
+							url: "../index/index"
+						})
 					},
 					fail: function(e) {
 						console.log(e)
