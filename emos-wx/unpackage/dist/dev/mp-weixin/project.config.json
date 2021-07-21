@@ -25,8 +25,15 @@
       "list": []
     },
     "miniprogram": {
-      "current": -1,
-      "list": []
+      "current": 0,
+      "list": [
+        {
+          "id": 0,
+          "name": "pages/checkin/checkin",
+          "pathName": "pages/checkin/checkin",
+          "query": ""
+        }
+      ]
     }
   }
 }

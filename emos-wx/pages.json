@@ -1,3 +1,4 @@
+
 // {
 // 	"pages": [
 // 		{
@@ -7,7 +8,6 @@
 // 		        "navigationBarTitleText": "",
 // 		        "enablePullDownRefresh": false
 // 		    }
-		    
 // 		},
 // 		{
 // 			"path": "pages/index/index",
@@ -22,7 +22,6 @@
 //                 "navigationBarTitleText": "",
 //                 "enablePullDownRefresh": false
 //             }
-            
 //         }
 //     ],
 // 	"globalStyle": {
@@ -32,318 +31,296 @@
 // 		"backgroundColor": "#F8F8F8"
 // 	}
 // }
-
 {
-	"pages": [
-		//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		
-		{
-			"path": "pages/login/login",
-			"style": {
-				"navigationBarTitleText": "欢迎使用EMOS系统",
-				"enablePullDownRefresh": false
-			}
-		},
-		{
-			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "首页"
-			}
-		},	
-		{
-			"path": "pages/register/register",
-			"style": {
-				"navigationBarTitleText": "新用户注册",
-				"enablePullDownRefresh": false
-			}
-		},
-		{
-			"path": "pages/meeting_list/meeting_list",
-			"style": {
-				"navigationBarTitleText": "会议列表",
-				"enablePullDownRefresh": false
-			}
-		},
-		{
-			"path": "pages/document/document",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
-		},
-		{
-			"path": "pages/contacts/contacts",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
-		},
-		{
-			"path": "pages/mine/mine",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
-		}
-		// {
-		// 	"path": "pages/checkin/checkin",
-		// 	"style": {
-		// 		"navigationBarTitleText": "在线签到",
-		// 		"enablePullDownRefresh": false
-		// 	}
-		// }
-	 //    ,{
-  //           "path" : "pages/checkin_result/checkin_result",
-  //           "style" :                                                                                    
-  //           {
-  //               "navigationBarTitleText": "签到结果",
-  //               "enablePullDownRefresh": false
-  //           }
-            
-  //       }
-        
-  //       ,{
-  //           "path" : "pages/my_checkin/my_checkin",
-  //           "style" :                                                                                    
-  //           {
-  //               "navigationBarTitleText": "我的考勤",
-  //               "enablePullDownRefresh": false
-  //           }
-            
-  //       }
-  //       ,{
-  //           "path" : "pages/message_list/message_list",
-  //           "style" :                                                                                    
-  //           {
-  //               "navigationBarTitleText": "消息列表",
-  //               "enablePullDownRefresh": false
-  //           }
-            
-  //       }
-  //       ,{
-  //           "path" : "pages/message/message",
-  //           "style" :                                                                                    
-  //           {
-  //               "navigationBarTitleText": "消息详情",
-  //               "enablePullDownRefresh": false
-  //           }
-            
-  //       }
-  //       ,{
-  //           "path" : "pages/meeting/meeting",
-  //           "style" :                                                                                    
-  //           {
-  //               "navigationBarTitleText": "会议详情",
-  //               "enablePullDownRefresh": false
-  //           }
-            
-  //       }
-  //       ,{
-  //           "path" : "pages/members/members",
-  //           "style" :                                                                                    
-  //           {
-  //               "navigationBarTitleText": "选择成员",
-  //               "enablePullDownRefresh": false
-  //           }
-            
-  //       }
-        
-  //       ,{
-  //           "path" : "pages/approval_list/approval_list",
-  //           "style" :                                                                                    
-  //           {
-  //               "navigationBarTitleText": "在线审批",
-  //               "enablePullDownRefresh": false
-  //           }
-            
-  //       }
-        // ,{
-        //     "path" : "pages/approval/approval",
-        //     "style" :                                                                                    
-        //     {
-        //         "navigationBarTitleText": "审批",
-        //         "enablePullDownRefresh": false
-        //     }
-            
-        // }
+    "pages" : [
+        //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+        {
+            "path" : "pages/login/login",
+            "style" : {
+                "navigationBarTitleText" : "欢迎使用EMOS系统",
+                "enablePullDownRefresh" : false
+            }
+        },
+        {
+            "path" : "pages/index/index",
+            "style" : {
+                "navigationBarTitleText" : "首页"
+            }
+        },
+        {
+            "path" : "pages/register/register",
+            "style" : {
+                "navigationBarTitleText" : "新用户注册",
+                "enablePullDownRefresh" : false
+            }
+        },
+        {
+            "path" : "pages/meeting_list/meeting_list",
+            "style" : {
+                "navigationBarTitleText" : "会议列表",
+                "enablePullDownRefresh" : false
+            }
+        },
+        {
+            "path" : "pages/document/document",
+            "style" : {
+                "navigationBarTitleText" : "",
+                "enablePullDownRefresh" : false
+            }
+        },
+        {
+            "path" : "pages/contacts/contacts",
+            "style" : {
+                "navigationBarTitleText" : "",
+                "enablePullDownRefresh" : false
+            }
+        },
+        {
+            "path" : "pages/mine/mine",
+            "style" : {
+                "navigationBarTitleText" : "",
+                "enablePullDownRefresh" : false
+            }
+        },
+        {
+            "path" : "pages/checkin/checkin",
+            "style" : {}
+        }
+    ],
+    // {
+    // 	"path": "pages/checkin/checkin",
+    // 	"style": {
+    // 		"navigationBarTitleText": "在线签到",
+    // 		"enablePullDownRefresh": false
+    // 	}
+    // }
+    //    ,{
+    //           "path" : "pages/checkin_result/checkin_result",
+    //           "style" :                                                                                    
+    //           {
+    //               "navigationBarTitleText": "签到结果",
+    //               "enablePullDownRefresh": false
+    //           }
+    //       }
+    //       ,{
+    //           "path" : "pages/my_checkin/my_checkin",
+    //           "style" :                                                                                    
+    //           {
+    //               "navigationBarTitleText": "我的考勤",
+    //               "enablePullDownRefresh": false
+    //           }
+    //       }
+    //       ,{
+    //           "path" : "pages/message_list/message_list",
+    //           "style" :                                                                                    
+    //           {
+    //               "navigationBarTitleText": "消息列表",
+    //               "enablePullDownRefresh": false
+    //           }
+    //       }
+    //       ,{
+    //           "path" : "pages/message/message",
+    //           "style" :                                                                                    
+    //           {
+    //               "navigationBarTitleText": "消息详情",
+    //               "enablePullDownRefresh": false
+    //           }
+    //       }
+    //       ,{
+    //           "path" : "pages/meeting/meeting",
+    //           "style" :                                                                                    
+    //           {
+    //               "navigationBarTitleText": "会议详情",
+    //               "enablePullDownRefresh": false
+    //           }
+    //       }
+    //       ,{
+    //           "path" : "pages/members/members",
+    //           "style" :                                                                                    
+    //           {
+    //               "navigationBarTitleText": "选择成员",
+    //               "enablePullDownRefresh": false
+    //           }
+    //       }
+    //       ,{
+    //           "path" : "pages/approval_list/approval_list",
+    //           "style" :                                                                                    
+    //           {
+    //               "navigationBarTitleText": "在线审批",
+    //               "enablePullDownRefresh": false
+    //           }
+    //       }
+    // ,{
+    //     "path" : "pages/approval/approval",
+    //     "style" :                                                                                    
+    //     {
+    //         "navigationBarTitleText": "审批",
+    //         "enablePullDownRefresh": false
+    //     }
+    // }
     //     ,{
     //         "path" : "pages/video_meeting/video_meeting",
     //         "style" :                                                                                    
     //         {
     //             "navigationBarTitleText": "视频会议",
     //             "enablePullDownRefresh": false,
-				// "usingComponents": {
-				// 	"trtc-room": "/wxcomponents/trtc-room/trtc-room"
-				// }
+    // "usingComponents": {
+    // 	"trtc-room": "/wxcomponents/trtc-room/trtc-room"
+    // }
     //         }
-            
     //     }
-        // ,{
-        //     "path" : "pages/approval/approval",
-        //     "style" :                                                                                    
-        //     {
-        //         "navigationBarTitleText": "",
-        //         "enablePullDownRefresh": false
-        //     }
-            
-        // }
-        // ,{
-        //     "path" : "pages/approval_list/approval_list",
-        //     "style" :                                                                                    
-        //     {
-        //         "navigationBarTitleText": "",
-        //         "enablePullDownRefresh": false
-        //     }
-            
-        // }
-        // ,{
-        //     "path" : "pages/checkin/checkin",
-        //     "style" :                                                                                    
-        //     {
-        //         "navigationBarTitleText": "",
-        //         "enablePullDownRefresh": false
-        //     }
-            
-        // }
-        // ,{
-        //     "path" : "pages/checkin_result/checkin_result",
-        //     "style" :                                                                                    
-        //     {
-        //         "navigationBarTitleText": "",
-        //         "enablePullDownRefresh": false
-        //     }
-            
-        // }
-        // ,{
-        //     "path" : "pages/contacts/contacts",
-        //     "style" :                                                                                    
-        //     {
-        //         "navigationBarTitleText": "",
-        //         "enablePullDownRefresh": false
-        //     }
-            
-        // }
-        // ,{
-        //     "path" : "pages/document/document",
-        //     "style" :                                                                                    
-        //     {
-        //         "navigationBarTitleText": "",
-        //         "enablePullDownRefresh": false
-        //     }
-            
-        // }
-        // ,{
-        //     "path" : "pages/meeting/meeting",
-        //     "style" :                                                                                    
-        //     {
-        //         "navigationBarTitleText": "",
-        //         "enablePullDownRefresh": false
-        //     }
-            
-        // }
-        // ,{
-        //     "path" : "pages/meeting_list/meeting_list",
-        //     "style" :                                                                                    
-        //     {
-        //         "navigationBarTitleText": "",
-        //         "enablePullDownRefresh": false
-        //     }
-            
-        // }
-        // ,{
-        //     "path" : "pages/members/members",
-        //     "style" :                                                                                    
-        //     {
-        //         "navigationBarTitleText": "",
-        //         "enablePullDownRefresh": false
-        //     }
-            
-        // }
-        // ,{
-        //     "path" : "pages/message/message",
-        //     "style" :                                                                                    
-        //     {
-        //         "navigationBarTitleText": "",
-        //         "enablePullDownRefresh": false
-        //     }
-            
-        // }
-        // ,{
-        //     "path" : "pages/message_list/message_list",
-        //     "style" :                                                                                    
-        //     {
-        //         "navigationBarTitleText": "",
-        //         "enablePullDownRefresh": false
-        //     }
-            
-        // }
-        // ,{
-        //     "path" : "pages/mine/mine",
-        //     "style" :                                                                                    
-        //     {
-        //         "navigationBarTitleText": "",
-        //         "enablePullDownRefresh": false
-        //     }
-            
-        // }
-        // ,{
-        //     "path" : "pages/my_checkin/my_checkin",
-        //     "style" :                                                                                    
-        //     {
-        //         "navigationBarTitleText": "",
-        //         "enablePullDownRefresh": false
-        //     }
-            
-        // }
-        // ,{
-        //     "path" : "pages/video_meeting/video_meeting",
-        //     "style" :                                                                                    
-        //     {
-        //         "navigationBarTitleText": "",
-        //         "enablePullDownRefresh": false
-        //     }
-            
-        // }
-    ],
-	"globalStyle": {
-		"navigationBarTextStyle": "white",
-		"navigationBarTitleText": "EMOS系统",
-		"navigationBarBackgroundColor": "#3474FF",
-		"backgroundColor": "#EEEEF4"
-	},
-	"tabBar": {
-		"color": "#666",
-		"selectedColor": "#3474FF",
-		"list": [{
-				"text": "首页",
-				"pagePath": "pages/index/index",
-				"iconPath": "static/bar-1.png",
-				"selectedIconPath": "static/bar-1-active.png"
-			},
-			{
-				"text": "会议",
-				"pagePath": "pages/meeting_list/meeting_list",
-				"iconPath": "static/bar-2.png",
-				"selectedIconPath": "static/bar-2-active.png"
-			},
-			{
-				"text": "文档",
-				"pagePath": "pages/document/document",
-				"iconPath": "static/bar-3.png",
-				"selectedIconPath": "static/bar-3-active.png"
-			},
-			{
-				"text": "通讯录",
-				"pagePath": "pages/contacts/contacts",
-				"iconPath": "static/bar-4.png",
-				"selectedIconPath": "static/bar-4-active.png"
-			},
-			{
-				"text": "我的",
-				"pagePath": "pages/mine/mine",
-				"iconPath": "static/bar-5.png",
-				"selectedIconPath": "static/bar-5-active.png"
-			}
-		]
-	}
+    // ,{
+    //     "path" : "pages/approval/approval",
+    //     "style" :                                                                                    
+    //     {
+    //         "navigationBarTitleText": "",
+    //         "enablePullDownRefresh": false
+    //     }
+    // }
+    // ,{
+    //     "path" : "pages/approval_list/approval_list",
+    //     "style" :                                                                                    
+    //     {
+    //         "navigationBarTitleText": "",
+    //         "enablePullDownRefresh": false
+    //     }
+    // }
+    // ,{
+    //     "path" : "pages/checkin/checkin",
+    //     "style" :                                                                                    
+    //     {
+    //         "navigationBarTitleText": "",
+    //         "enablePullDownRefresh": false
+    //     }
+    // }
+    // ,{
+    //     "path" : "pages/checkin_result/checkin_result",
+    //     "style" :                                                                                    
+    //     {
+    //         "navigationBarTitleText": "",
+    //         "enablePullDownRefresh": false
+    //     }
+    // }
+    // ,{
+    //     "path" : "pages/contacts/contacts",
+    //     "style" :                                                                                    
+    //     {
+    //         "navigationBarTitleText": "",
+    //         "enablePullDownRefresh": false
+    //     }
+    // }
+    // ,{
+    //     "path" : "pages/document/document",
+    //     "style" :                                                                                    
+    //     {
+    //         "navigationBarTitleText": "",
+    //         "enablePullDownRefresh": false
+    //     }
+    // }
+    // ,{
+    //     "path" : "pages/meeting/meeting",
+    //     "style" :                                                                                    
+    //     {
+    //         "navigationBarTitleText": "",
+    //         "enablePullDownRefresh": false
+    //     }
+    // }
+    // ,{
+    //     "path" : "pages/meeting_list/meeting_list",
+    //     "style" :                                                                                    
+    //     {
+    //         "navigationBarTitleText": "",
+    //         "enablePullDownRefresh": false
+    //     }
+    // }
+    // ,{
+    //     "path" : "pages/members/members",
+    //     "style" :                                                                                    
+    //     {
+    //         "navigationBarTitleText": "",
+    //         "enablePullDownRefresh": false
+    //     }
+    // }
+    // ,{
+    //     "path" : "pages/message/message",
+    //     "style" :                                                                                    
+    //     {
+    //         "navigationBarTitleText": "",
+    //         "enablePullDownRefresh": false
+    //     }
+    // }
+    // ,{
+    //     "path" : "pages/message_list/message_list",
+    //     "style" :                                                                                    
+    //     {
+    //         "navigationBarTitleText": "",
+    //         "enablePullDownRefresh": false
+    //     }
+    // }
+    // ,{
+    //     "path" : "pages/mine/mine",
+    //     "style" :                                                                                    
+    //     {
+    //         "navigationBarTitleText": "",
+    //         "enablePullDownRefresh": false
+    //     }
+    // }
+    // ,{
+    //     "path" : "pages/my_checkin/my_checkin",
+    //     "style" :                                                                                    
+    //     {
+    //         "navigationBarTitleText": "",
+    //         "enablePullDownRefresh": false
+    //     }
+    // }
+    // ,{
+    //     "path" : "pages/video_meeting/video_meeting",
+    //     "style" :                                                                                    
+    //     {
+    //         "navigationBarTitleText": "",
+    //         "enablePullDownRefresh": false
+    //     }
+    // }
+    "globalStyle" : {
+        "navigationBarTextStyle" : "white",
+        "navigationBarTitleText" : "EMOS系统",
+        "navigationBarBackgroundColor" : "#3474FF",
+        "backgroundColor" : "#EEEEF4"
+    },
+    "tabBar" : {
+        "color" : "#666",
+        "selectedColor" : "#3474FF",
+        "list" : [
+            {
+                "text" : "首页",
+                "pagePath" : "pages/index/index",
+                "iconPath" : "static/bar-1.png",
+                "selectedIconPath" : "static/bar-1-active.png"
+            },
+            {
+                "text" : "会议",
+                "pagePath" : "pages/meeting_list/meeting_list",
+                "iconPath" : "static/bar-2.png",
+                "selectedIconPath" : "static/bar-2-active.png"
+            },
+            {
+                "text" : "文档",
+                "pagePath" : "pages/document/document",
+                "iconPath" : "static/bar-3.png",
+                "selectedIconPath" : "static/bar-3-active.png"
+            },
+            {
+                "text" : "通讯录",
+                "pagePath" : "pages/contacts/contacts",
+                "iconPath" : "static/bar-4.png",
+                "selectedIconPath" : "static/bar-4-active.png"
+            },
+            {
+                "text" : "我的",
+                "pagePath" : "pages/mine/mine",
+                "iconPath" : "static/bar-5.png",
+                "selectedIconPath" : "static/bar-5-active.png"
+            }
+        ]
+    }
 }
