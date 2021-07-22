@@ -3,7 +3,6 @@ package top.liyuejin.emoswxapi;
 import cn.hutool.core.util.StrUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
@@ -12,6 +11,7 @@ import top.liyuejin.emoswxapi.dao.SysConfigDao;
 import top.liyuejin.emoswxapi.pojo.SysConfig;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
 import java.lang.reflect.Field;
 import java.util.List;
 
@@ -19,10 +19,10 @@ import java.util.List;
 @ServletComponentScan
 public class EmosWxApiApplication {
 
-    @Autowired
+    @Resource
     private SysConfigDao sysConfigDao;
 
-    @Autowired
+    @Resource
     private SystemConstants systemConstants;
 
     private static final Logger log = LoggerFactory.getLogger(EmosWxApiApplication.class);
