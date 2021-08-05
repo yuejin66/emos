@@ -7,5 +7,5 @@ import java.util.HashMap;
 @Mapper
 public interface TbCheckinDao {
 
-    Integer haveCheckin(HashMap map);
+    Integer haveCheckin(HashMap<String, Object> map);
 }
