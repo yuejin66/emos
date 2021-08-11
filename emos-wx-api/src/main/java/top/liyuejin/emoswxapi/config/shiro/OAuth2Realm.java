@@ -10,6 +10,7 @@ import top.liyuejin.emoswxapi.pojo.TbUser;
 import top.liyuejin.emoswxapi.service.UserService;
 
 import javax.annotation.Resource;
+import java.util.Set;
 import java.util.concurrent.locks.Lock;
 
 @Configuration
@@ -32,10 +33,11 @@ public class OAuth2Realm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        var info = new SimpleAuthorizationInfo();
-        // TODO：查询用户的权限信息。
-        // TODO：把权限列表添加到info对象中。
-        return info;
+        TbUser user = (TbUser) principalCollection.getPrimaryPrincipal();
+        Integer userId = user.getId();
+        // 查询用户权限列表
+        Set<String> permissions = userService.getUserPermissions(userId);
+        return new SimpleAuthorizationInfo(permissions);
     }
 
     /**

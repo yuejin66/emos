@@ -44,7 +44,7 @@ public class OAuth2Filter extends AuthenticatingFilter {
      * 拦截请求，把token字符串封装成token对象
      */
     @Override
-    protected AuthenticationToken createToken(ServletRequest servletRequest, ServletResponse servletResponse) throws Exception {
+    protected AuthenticationToken createToken(ServletRequest servletRequest, ServletResponse servletResponse) {
         // 获取请求的token
         String token = getRequestToken((HttpServletRequest) servletRequest);
         if (StringUtils.isBlank(token)) {
@@ -94,7 +94,7 @@ public class OAuth2Filter extends AuthenticatingFilter {
                 response.getWriter().print("令牌已过期");
                 return false;
             }
-        } catch (JWTDecodeException e) {
+        } catch (Exception e) {
             response.setStatus(HttpStatus.SC_UNAUTHORIZED);
             response.getWriter().print("无效的令牌");
             return false;

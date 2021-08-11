@@ -2,6 +2,8 @@ package top.liyuejin.emoswxapi.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.shiro.authz.annotation.Logical;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +16,7 @@ import top.liyuejin.emoswxapi.form.LoginForm;
 import top.liyuejin.emoswxapi.form.RegisterForm;
 import top.liyuejin.emoswxapi.service.UserService;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.util.Set;
@@ -57,6 +60,13 @@ public class UserController {
         Set<String> permissions = userService.getUserPermissions(userId);
         saveCacheToken(token, userId);
         return Result.success("登陆成功").put("token", token).put("permission", permissions);
+    }
+
+    @PostMapping("/add")
+    @ApiOperation("添加用户（测试Shiro权限）")
+    @RequiresPermissions(value = {"ROOT", "USER:ADD"}, logical = Logical.OR)
+    public Result addUser() {
+        return Result.success("用户添加成功");
     }
 
     private void saveCacheToken(String token, int userId) {
