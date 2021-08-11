@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
-import top.liyuejin.emoswxapi.config.SystemConstants;
+import top.liyuejin.emoswxapi.config.system.SystemConstants;
 import top.liyuejin.emoswxapi.dao.SysConfigDao;
 import top.liyuejin.emoswxapi.pojo.SysConfig;
 

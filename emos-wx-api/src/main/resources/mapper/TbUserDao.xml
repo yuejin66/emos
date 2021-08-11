@@ -237,4 +237,10 @@
     JOIN tb_permission p ON JSON_CONTAINS(r.permissions, CAST(p.id AS CHAR))
     WHERE u.id=#{userId} AND u.status=1;
   </select>
+  <select id="getUserById" parameterType="int" resultType="top.liyuejin.emoswxapi.pojo.TbUser">
+    select
+    <include refid="Base_Column_List" />
+    from tb_user
+    where id = #{userId} and status = 1;
+  </select>
 </mapper>

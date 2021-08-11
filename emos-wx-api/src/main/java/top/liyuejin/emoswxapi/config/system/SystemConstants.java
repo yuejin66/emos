@@ -1,4 +1,4 @@
-package top.liyuejin.emoswxapi.config;
+package top.liyuejin.emoswxapi.config.system;
 
 import org.springframework.stereotype.Component;
 

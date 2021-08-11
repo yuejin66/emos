@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
-import top.liyuejin.emoswxapi.config.SystemConstants;
+import top.liyuejin.emoswxapi.config.system.SystemConstants;
 import top.liyuejin.emoswxapi.dao.TbCheckinDao;
 import top.liyuejin.emoswxapi.dao.TbHolidaysDao;
 import top.liyuejin.emoswxapi.dao.TbWorkdayDao;

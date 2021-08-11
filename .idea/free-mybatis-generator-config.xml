@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PersistentConfig">
+    <option name="historyConfigList">
+      <map>
+        <entry key="tb_checkin">
+          <value>
+            <Config>
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="TbCheckinDao" />
+              <option name="daoPackage" value="top.liyuejin.emoswxapi.dao" />
+              <option name="daoPostfix" value="Dao" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="TbCheckin" />
+              <option name="modelPackage" value="top.liyuejin.emoswxapi.pojo" />
+              <option name="name" value="tb_checkin" />
+              <option name="overrideJava" value="true" />
+              <option name="primaryKey" value="id" />
+              <option name="projectFolder" value="$PROJECT_DIR$/emos-wx-api" />
+              <option name="tableName" value="tb_checkin" />
+              <option name="useLombokPlugin" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="mapper" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="tb_workday">
+          <value>
+            <Config>
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="TbWorkdayDao" />
+              <option name="daoPackage" value="top.liyuejin.emoswxapi.dao" />
+              <option name="daoPostfix" value="Dao" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="TbWorkday" />
+              <option name="modelPackage" value="top.liyuejin.emoswxapi.pojo" />
+              <option name="name" value="tb_workday" />
+              <option name="primaryKey" value="id" />
+              <option name="projectFolder" value="$PROJECT_DIR$/emos-wx-api" />
+              <option name="tableName" value="tb_workday" />
+              <option name="useLombokPlugin" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="mapper" />
+            </Config>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

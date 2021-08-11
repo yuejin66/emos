@@ -1,5 +1,7 @@
 package top.liyuejin.emoswxapi.service;
 
+import top.liyuejin.emoswxapi.pojo.TbUser;
+
 import java.util.Set;
 
 public interface UserService {
@@ -11,4 +13,6 @@ public interface UserService {
     String getOpenId(String code);
 
     Set<String> getUserPermissions(int userId);
+
+    TbUser getUserById(int userId);
 }

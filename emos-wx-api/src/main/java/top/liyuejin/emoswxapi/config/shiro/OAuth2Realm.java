@@ -1,22 +1,25 @@
 package top.liyuejin.emoswxapi.config.shiro;
 
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.context.annotation.Configuration;
+import top.liyuejin.emoswxapi.pojo.TbUser;
+import top.liyuejin.emoswxapi.service.UserService;
 
 import javax.annotation.Resource;
+import java.util.concurrent.locks.Lock;
 
 @Configuration
 public class OAuth2Realm extends AuthorizingRealm {
 
     @Resource
     private JwtUtil jwtUtil;
+
+    @Resource
+    private UserService userService;
 
     @Override
     public boolean supports(AuthenticationToken token) {
@@ -41,9 +44,12 @@ public class OAuth2Realm extends AuthorizingRealm {
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        var info = new SimpleAuthenticationInfo();
-        // TODO：从令牌种获取userId，然后检测该用户是否被冻结
-        // TODO：往info对象中添加用户信息，token字符串
-        return info;
+        String token = (String) authenticationToken.getPrincipal();
+        int userId = jwtUtil.getUserId(token);
+        TbUser user = userService.getUserById(userId);
+        if (null == user) { // 离职等原因
+            throw new LockedAccountException("该账号已被冻结，请联系管理员");
+        }
+        return new SimpleAuthenticationInfo(user, token, getName());
     }
 }

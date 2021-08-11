@@ -27,4 +27,6 @@ public interface TbUserDao {
     Integer getIdByOpenId(String openId);
 
     Set<String> getUserPermissions(int userId);
+
+    TbUser getUserById(int userId);
 }

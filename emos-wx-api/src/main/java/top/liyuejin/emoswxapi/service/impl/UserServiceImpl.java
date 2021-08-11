@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import top.liyuejin.emoswxapi.dao.TbUserDao;
 import top.liyuejin.emoswxapi.exception.EmosException;
+import top.liyuejin.emoswxapi.pojo.TbUser;
 import top.liyuejin.emoswxapi.service.UserService;
 
 import javax.annotation.Resource;
@@ -82,5 +83,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public Set<String> getUserPermissions(int userId) {
         return userDao.getUserPermissions(userId);
+    }
+
+    @Override
+    public TbUser getUserById(int userId) {
+        return userDao.getUserById(userId);
     }
 }
