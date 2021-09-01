@@ -8,7 +8,7 @@
 #### 7.shiro认证和授权（RBAC）
 ### 小程序
 #### uni-app（主要使用小程序）
-### 小结
+
 ![登陆](https://emos-1302674045.cos.ap-guangzhou.myqcloud.com/img/image-20210811210628907.png)
 
 jwt+shiro基本登陆流程完成，后续人面识别功能有时间再写。
