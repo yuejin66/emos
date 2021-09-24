@@ -1,3 +1,4 @@
+# 这里的配置都是 Virtual Box -> Docker
 server:
   tomcat:
     uri-encoding: UTF-8
@@ -67,9 +68,9 @@ emos:
 
 #  mail:
 #    default-encoding: UTF-8
-#    host: smtp.aliyun.com
-#    username: yangdi525@aliyun.com
-#    password: ax105105
+#    host:
+#    username:
+#    password:
 
 #workflow:
 #  url: http://CentOS的IP地址:9090/emos-workflow
