@@ -1,10 +1,8 @@
 package top.liyuejin.emoswxapi.config.shiro;
 
 import cn.hutool.core.util.StrUtil;
-import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.http.HttpStatus;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.web.filter.authc.AuthenticatingFilter;
@@ -12,6 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
@@ -75,7 +74,7 @@ public class OAuth2Filter extends AuthenticatingFilter {
 
         String token = getRequestToken(request);
         if (StrUtil.isBlank(token)) {
-            response.setStatus(HttpStatus.SC_UNAUTHORIZED);
+            response.setStatus(HttpStatus.UNAUTHORIZED.value());
             response.getWriter().print("无效的令牌");
             return false;
         }
@@ -90,12 +89,12 @@ public class OAuth2Filter extends AuthenticatingFilter {
                 redisTemplate.opsForValue().set(token, String.valueOf(userId), cacheExpire, TimeUnit.DAYS);
                 threadLocalToken.setToken(token);
             } else {
-                response.setStatus(HttpStatus.SC_UNAUTHORIZED);
+                response.setStatus(HttpStatus.UNAUTHORIZED.value());
                 response.getWriter().print("令牌已过期");
                 return false;
             }
         } catch (Exception e) {
-            response.setStatus(HttpStatus.SC_UNAUTHORIZED);
+            response.setStatus(HttpStatus.UNAUTHORIZED.value());
             response.getWriter().print("无效的令牌");
             return false;
         }
@@ -111,7 +110,7 @@ public class OAuth2Filter extends AuthenticatingFilter {
         response.setCharacterEncoding("UTF-8");
         response.setHeader("Access-Control-Allow-Credentials", "true");
         response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
-        response.setStatus(HttpStatus.SC_UNAUTHORIZED);
+        response.setStatus(HttpStatus.UNAUTHORIZED.value());
         try {
             response.getWriter().print(e.getMessage());
         } catch (Exception exception) {
