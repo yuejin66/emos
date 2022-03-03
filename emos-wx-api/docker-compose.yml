@@ -1,0 +1,82 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    ports:
+      - "11190:3306"
+    command:
+      --wait_timeout=1814400
+      --max_allowed_packet=100M
+      --default-time_zone='+8:00'
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+      --default-authentication-plugin=mysql_native_password
+    # 将主机卷挂载到容器里
+    volumes:
+      - /home/liyuejin/mysql/db/conf.d:/etc/mysql/conf.d
+      - /home/liyuejin/mysql/db/data:/var/lib/mysql
+      - /home/liyuejin/mysql/db/init-sql:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    restart: always
+
+  redis:
+    image: redis:6.0
+    ports:
+      - "11191:6379"
+    container_name: redis
+    volumes:
+      - /home/liyuejin/redis/redis.conf:/usr/local/etc/redis/redis.conf
+    #启动redis服务并添加密码为：123456,并开启redis的持久化
+    command: redis-server --requirepass 123456
+    restart: always
+
+  mongodb:
+    image: mongo:5.0.6
+    ports:
+      - "11192:27017"
+    container_name: mongodb
+    volumes:
+      - /docker/mongodb/data/db:/data/db # 挂载数据目录
+      - /docker/mongodb/data/log:/var/log/mongodb  # 挂载日志目录
+      - /docker/mongodb/data/config:/etc/mongo  # 挂载配置目录
+    # command: --config /docker/mongodb/mongod.conf # 配置文件
+    environment:
+      TZ: Asia/Shanghai
+      MONGO_INITDB_DATABASE: emos
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 123456
+    restart: always
+
+  rabbitmq:
+    image: rabbitmq:3.9.13
+    ports:
+      - "11193:5672"
+      - "11194:15672"
+    container_name: rabbitmq
+    environment:
+      #rabbitmq的初始用户名
+      RABBITMQ_DEFAULT_USER: root
+      #rabbitmq的初始密码
+      RABBITMQ_DEFAULT_PASS: 123456
+
+  emos:
+    image: 这里修改为你的私有docker域名/emos:v1.0
+    container_name: emos
+    ports:
+      - "8093:8093"
+    volumes:
+      - /home/liyuejin/emos/storage:/storage
+      - /home/liyuejin/emos/logs:/logs
+      - /home/liyuejin/emos/backup:/backup
+      - /etc/localtime:/etc/localtime
+    environment:
+      TZ: Asia/Shanghai
+    depends_on:
+      - mysql
+      - redis
+      - mongodb
+      - rabbitmq
+    restart: always
+
