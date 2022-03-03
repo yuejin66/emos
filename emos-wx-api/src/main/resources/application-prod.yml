@@ -1,0 +1,86 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    threads:
+      max: 200
+      min-spare: 30
+    connection-timeout: 5000ms
+  port: 8093
+  servlet:
+    context-path: /emos-wx-api
+
+spring:
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:mysql}:${MYSQL_PORT:3306}/emos?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${MYSQL_USER:emos}
+    password: ${MYSQL_PWD:emos123456}
+
+  redis:
+    database: 0
+    host: ${REDIS_HOST:redis}
+    port: ${REDIS_PORT:6379}
+    password: 123456
+    jedis:
+      pool:
+        max-active: 1000
+        max-wait: -1ms
+        max-idle: 16
+        min-idle: 8
+
+  data:
+    mongodb:
+      host: ${MONGODB_HOST:mongodb}
+      port: ${MONGODB_PORT:27017}
+      database: emos
+      authentication-database: root
+      username: root
+      password: 123456
+
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+  type-aliases-package: com.yuejin66.emoswxapi.pojo
+
+logging:
+  level:
+    root: info
+    com.example.emos.wx.db.dao : warn
+  pattern:
+    console: "%d{HH:mm:ss}  %-5level  %msg%n"
+
+emos:
+  jwt:
+    secret: EMOS-SECRET
+    expire: 5
+    cache-expire: 10
+
+wx:
+  app-id: ${WXAPP_ID}
+  app-secret: ${WXAPP_SECRET}
+
+#  face:
+#    createFaceModelUrl: http://CentOS的IP地址:3000/create_face_model
+#    checkinUrl: http://CentOS的IP地址:3000/checkin
+#  email:
+#    system: 邮箱地址1
+#    hr: 邮箱地址2
+#  image-folder: D:/emos/image
+#  code: HelloWorld
+#  recieveNotify: http://PC电脑的IP地址:8080/emos-wx-api/meeting/recieveNotify
+
+#  mail:
+#    default-encoding: UTF-8
+#    host:
+#    username:
+#    password:
+
+#workflow:
+#  url: http://CentOS的IP地址:9090/emos-workflow
+#
+#trtc:
+#  appid: TRTC的APPID
+#  key: TRTC的密钥
+#  expire: 86400

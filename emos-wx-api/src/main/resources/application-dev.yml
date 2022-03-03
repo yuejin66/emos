@@ -1,3 +1,4 @@
+# 这里的配置都是 Virtual Box -> Docker
 server:
   tomcat:
     uri-encoding: UTF-8
@@ -5,19 +6,20 @@ server:
       max: 200
       min-spare: 30
     connection-timeout: 5000ms
-  port: 8090
+  port: 8093
   servlet:
     context-path: /emos-wx-api
 
 spring:
   datasource:
+    url: jdbc:mysql://localhost:3306/emos?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 123456
-    url: jdbc:mysql://192.168.56.101:3306/emos?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
 
   redis:
     database: 0
-    host: 192.168.56.101
+    host: localhost
     port: 6379
     password: admin
     jedis:
@@ -29,32 +31,33 @@ spring:
 
   data:
     mongodb:
-      host: 192.168.56.101
+      host: localhost
       port: 27017
       database: emos
       authentication-database: admin
       username: admin
-      password: admin
+      password: 123456
 
 mybatis:
   mapper-locations: classpath*:mapper/*.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: true
-  type-aliases-package: top.liyuejin.emoswxapi.pojo
+  type-aliases-package: com.yuejin66.emoswxapi.pojo
 
 logging:
-  level:
-    root: info
-    com.example.emos.wx.db.dao : warn
-  pattern:
-    console: "%d{HH:mm:ss}  %-5level  %msg%n"
+  config: logback-spring.xml
 
 emos:
   jwt:
     secret: EMOS-SECRET
     expire: 5
     cache-expire: 10
+
+wx:
+  app-id: wxb34914d52abf8d37
+  app-secret: f72877abff0a87309994628df0d69246
+
 #  face:
 #    createFaceModelUrl: http://CentOS的IP地址:3000/create_face_model
 #    checkinUrl: http://CentOS的IP地址:3000/checkin
@@ -67,9 +70,9 @@ emos:
 
 #  mail:
 #    default-encoding: UTF-8
-#    host: smtp.aliyun.com
-#    username: yangdi525@aliyun.com
-#    password: ax105105
+#    host:
+#    username:
+#    password:
 
 #workflow:
 #  url: http://CentOS的IP地址:9090/emos-workflow
@@ -78,6 +81,3 @@ emos:
 #  appid: TRTC的APPID
 #  key: TRTC的密钥
 #  expire: 86400
-#wx:
-#  app-id: 微信小程序APPID
-#  app-secret: 微信小程序密钥

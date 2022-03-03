@@ -1,0 +1,64 @@
+#
+kind: pipeline
+type: docker
+name: emos
+
+steps:
+  - name: package
+    image: maven:3.6-jdk-11
+    pull: if-not-exists
+    volumes:
+      - name: maven-cache
+        path: /root/.m2
+      - name: maven-build
+        path: /app/build/emos
+    commands:
+      - mvn -B -Dmaven.test.skip=true -s settings.xml clean package
+      - cp target/emos.jar /app/build/emos/emos.jar
+      - cp Dockerfile /app/build/emos/Dockerfile
+      - cp docker-compose.yml /app/build/emos/docker-compose.yml
+
+  - name: publish
+    image: plugins/docker:20
+    pull: if-not-exists
+    settings:
+      dockerfile: ./Dockerfile
+      username:
+        from_secret: REGISTRY_USER
+      password:
+        from_secret: REGISTRY_PWD
+      registry: registry-vpc.cn-shenzhen.aliyuncs.com
+      repo: registry-vpc.cn-shenzhen.aliyuncs.com/liyuejin/emos
+      tags: v1.0
+
+  - name: deploy
+    image: appleboy/drone-ssh:1.6.3
+    pull: if-not-exists
+    settings:
+      host: # 这里要改成服务器的 ip 或域名
+      port: 22
+      username: root
+      password:
+        from_secret: SSH_PWD
+      command_timeout: 10m
+      script_stop: false # 设置为 false，遇到第一次错误会继续运行后面的命令
+      script:
+        - echo ======= 暂停容器 =======
+#        - docker stop `docker ps -a | grep emos | awk '{print $1}' `
+        - cd /home/liyuejin/maven/build/emos
+        - docker-compose stop
+        - echo ======= 删除容器 =======
+        - docker rm -f `docker ps -a | grep emos | awk '{print $1}' `
+        - docker rmi registry-vpc.cn-shenzhen.aliyuncs.com/liyuejin/emos:v1.0
+        - echo ======= 部署应用 =======
+#        - docker run -d -p 8093:8093 --name=emos --restart=always registry-vpc.cn-shenzhen.aliyuncs.com/liyuejin/emos:v1.0
+        - docker-compose up -d
+        - echo ======= 部署成功 =======
+
+volumes:
+  - name: maven-build
+    host:
+      path: /home/liyuejin/maven/build/emos
+  - name: maven-cache
+    host:
+      path: /home/liyuejin/maven/cache
