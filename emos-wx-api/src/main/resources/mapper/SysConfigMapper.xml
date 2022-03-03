@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuejin66.emoswxapi.dao.SysConfigMapper">
+
+  <select id="getAllParam" resultType="com.yuejin66.emoswxapi.pojo.SysConfig">
+    select param_key, param_value from sys_config where status = 1;
+  </select>
+</mapper>
